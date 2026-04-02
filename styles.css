@@ -1,0 +1,81 @@
+/* Configuración General */
+body { 
+    font-family: 'Inter', sans-serif; 
+    scroll-behavior: smooth; 
+}
+
+/* Gradiente Hero Mejorado con Overlay */
+.hero-gradient { 
+    position: relative;
+    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 45%, #10b981 100%); 
+    overflow: hidden;
+}
+
+/* Overlay sutil para aumentar legibilidad del texto */
+.hero-gradient::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 1;
+}
+
+/* Clases de apoyo para colores dinámicos */
+.text-emerald-600 { color: #059669; }
+.text-blue-600 { color: #2563eb; }
+.text-purple-600 { color: #9333ea; }
+.text-yellow-600 { color: #ca8a04; }
+
+/* Tipografía Responsive y Ajustes de Artículos */
+.prose h2 { 
+    color: #1e3a8a; 
+    font-weight: 700; 
+    font-size: 1.8rem; 
+    margin-top: 2.5rem; 
+    margin-bottom: 1.2rem; 
+    border-left: 5px solid #10b981; 
+    padding-left: 1.2rem; 
+}
+
+.prose p { 
+    margin-bottom: 1.25rem; 
+    line-height: 1.75; 
+    color: #4b5563; 
+}
+
+/* Tipografía responsive nivel Pro */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem !important; }
+    h2 { font-size: 1.5rem !important; }
+    
+    .prose h2 { font-size: 1.5rem; }
+    .prose p { font-size: 0.95rem; line-height: 1.6; }
+    
+    /* Feedback táctil móvil en cards */
+    article:active {
+        background-color: #f9fafb;
+        transform: scale(0.98);
+    }
+}
+
+/* Consejos de Experto con Hover Dinámico */
+.expert-tip { 
+    background-color: #f0fdf4; 
+    border-left: 4px solid #10b981; 
+    padding: 1.5rem; 
+    margin: 2rem 0; 
+    border-radius: 0.8rem; 
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    /* Transiciones fluidas */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.expert-tip:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+}
+
+.expert-tip-blue {
+    background-color: #eff6ff;
+    border-left: 4px solid #3b82f6;
+}

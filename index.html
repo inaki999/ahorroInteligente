@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahorro Inteligente | Ahorro e Inversión</title>
+    <meta name="description" content="Aprende a ahorrar dinero, invertir y mejorar tus finanzas personales paso a paso con guías reales.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Overlay dinámico con gradiente en movimiento */
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hero-animate-gradient {
+            background: linear-gradient(-45deg, #1e3a8a, #0d9488, #1e40af, #10b981);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        .animate-fade-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+<header class="bg-white shadow-sm sticky top-0 z-50">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+            <div class="w-10 h-10 bg-blue-900 rounded-full flex items-center justify-center text-white font-bold">AI</div>
+            <span class="text-xl font-bold tracking-tight text-blue-900 uppercase">Ahorro Inteligente</span>
+        </div>
+        
+        <div class="hidden md:flex items-center space-x-4">
+            <select id="filterSelect" onchange="filterArticles()" aria-label="Filtrar artículos" class="bg-gray-50 border border-gray-200 text-gray-700 text-sm rounded-lg focus:ring-emerald-500 p-2.5 font-semibold cursor-pointer outline-none transition">
+                <option value="all">📂 Ver todos los artículos</option>
+                <option value="ahorro">💰 Estrategias de Ahorro</option>
+                <option value="dia">🏡 Finanzas del día a día</option>
+                <option value="mentalidad">🧠 Psicología financiera</option>
+                <option value="inversion">📈 Inversión y crecimiento</option>
+                <option value="pro">🚀 Planes avanzados</option>
+            </select>
+        </div>
+        <button id="mobileMenuBtn" class="md:hidden text-2xl p-2" aria-label="Abrir menú">☰</button>
+    </nav>
+    
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-t p-4 shadow-inner">
+        <div class="flex flex-col space-y-3">
+            <p class="text-xs font-bold text-gray-400 uppercase">Categorías:</p>
+            <button onclick="setFilter('all')" class="text-left py-2 border-b border-gray-50">📂 Todos</button>
+            <button onclick="setFilter('ahorro')" class="text-left py-2 border-b border-gray-50">💰 Ahorro</button>
+            <button onclick="setFilter('dia')" class="text-left py-2 border-b border-gray-50">🏡 Día a Día</button>
+            <button onclick="setFilter('inversion')" class="text-left py-2">📈 Inversión</button>
+        </div>
+    </div>
+</header>
+
+<section class="hero-animate-gradient text-white py-16 md:py-24 relative overflow-hidden">
+    <div class="container mx-auto px-6 flex flex-col md:flex-row items-center relative z-10 gap-12 animate-fade-up">
+        <div class="md:w-1/2">
+            <span class="bg-emerald-500/90 backdrop-blur-sm text-xs font-bold uppercase px-3 py-1 rounded-full shadow-sm tracking-widest">Empieza aquí</span>
+            
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mt-6 leading-tight sm:leading-snug md:leading-tight italic tracking-tight">
+                Aprende a controlar tu dinero desde hoy
+            </h1>
+            <p class="text-base md:text-lg mt-6 text-blue-50 text-pretty leading-relaxed tracking-wide opacity-90">
+                Guías claras, simples y reales para ahorrar, invertir y mejorar tu vida financiera sin complicaciones innecesarias.
+            </p>
+            
+            <a href="#articulos" class="inline-block mt-8 bg-white text-blue-900 font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-emerald-400 transition transform duration-300">
+                Ver guías ahora →
+            </a>
+        </div>
+        
+        <div class="md:w-1/2 mt-12 md:mt-0 flex justify-center relative">
+            <div class="w-full max-w-md aspect-video bg-white/10 rounded-3xl border border-white/20 overflow-hidden shadow-2xl backdrop-blur-md relative group">
+                <img src="https://images.unsplash.com/photo-1543269664-76bc3997d9ea?w=800&auto=format&fit=crop&q=80" 
+                     alt="Planificación financiera y ahorro" 
+                     class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                
+                <div class="absolute inset-0 bg-blue-900/20 group-hover:bg-blue-900/10 transition duration-300"></div>
+                
+                <div class="absolute bottom-4 right-4 bg-emerald-500 p-2.5 rounded-xl shadow-xl animate-pulse">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<main id="articulos" class="container mx-auto px-6 py-16">
+    <div id="intro-box" class="bg-white p-6 rounded-xl shadow-md mb-12 text-center border-t-4 border-emerald-500">
+        <h3 class="font-bold text-lg">💡 Tu camino a la libertad financiera</h3>
+        <p class="text-sm text-gray-600 mt-2">Explora nuestros bloques de contenido diseñados para mejorar tus finanzas personales y tu ahorro.</p>
+    </div>
+
+    <div class="space-y-16">
+        <section id="sec-ahorro">
+            <h2 class="text-2xl font-bold mb-8 border-l-4 border-orange-500 pl-4">💰 Estrategias de Ahorro</h2>
+            <div id="grid-ahorro" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+        </section>
+
+        <section id="sec-dia">
+            <h2 class="text-2xl font-bold mb-8 border-l-4 border-blue-500 pl-4">🏡 Finanzas del Día a Día</h2>
+            <div id="grid-dia" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+        </section>
+
+        <section id="sec-mentalidad">
+            <h2 class="text-2xl font-bold mb-8 border-l-4 border-purple-500 pl-4">🧠 Psicología Financiera</h2>
+            <div id="grid-mentalidad" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+        </section>
+
+        <section id="sec-inversion">
+            <h2 class="text-2xl font-bold mb-8 border-l-4 border-yellow-500 pl-4">📈 Inversiones y Crecimiento</h2>
+            <div id="grid-inversion" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+        </section>
+
+        <section id="sec-pro">
+            <h2 class="text-2xl font-bold mb-8 border-l-4 border-emerald-500 pl-4">🚀 Planes Avanzados</h2>
+            <div id="grid-pro" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+        </section>
+    </div>
+</main>
+
+<script>
+    const articlesData = [
+        // AHORRO
+        { titulo: "Cómo ahorrar dinero cada mes (aunque ganes poco)", cat: "Ahorro", color: "emerald", url: "ahorroMes.html", img: "https://images.pexels.com/photos/6801869/pexels-photo-6801869.jpeg", target: "grid-ahorro" },
+        { titulo: "Qué hacer si no llegas a fin de mes", cat: "Ahorro", color: "emerald", url: "noLlegarFinMes.html", img: "https://images.pexels.com/photos/27254207/pexels-photo-27254207.jpeg", target: "grid-ahorro" },
+        { titulo: "Cómo hacer un presupuesto mensual paso a paso", cat: "Ahorro", color: "emerald", url: "hacerPresupuesto.html", img: "https://images.pexels.com/photos/6779214/pexels-photo-6779214.jpeg", target: "grid-ahorro" },
+        { titulo: "Gastos innecesarios que debes eliminar ya", cat: "Ahorro", color: "emerald", url: "gastosInnecesarios.html", img: "https://images.pexels.com/photos/34577/pexels-photo.jpg", target: "grid-ahorro" },
+        { titulo: "Cuánto dinero deberías tener ahorrado según tu edad", cat: "Ahorro", color: "emerald", url: "dineroTenerAhorrado.html", img: "https://images.pexels.com/photos/12969361/pexels-photo-12969361.jpeg", target: "grid-ahorro" },
+        // DÍA A DÍA
+        { titulo: "Cuánto cuesta vivir solo en España en 2026", cat: "Vida Real", color: "blue", url: "cuestaVivirEspania.html", img: "https://images.pexels.com/photos/29521542/pexels-photo-29521542.jpeg", target: "grid-dia" },
+        { titulo: "Cuánto cuesta tener un coche realmente", cat: "Vida Real", color: "blue", url: "cuestaCoche.html", img: "https://images.pexels.com/photos/6369306/pexels-photo-6369306.jpeg", target: "grid-dia" },
+        { titulo: "Cómo organizar tus finanzas personales desde cero", cat: "Vida Real", color: "blue", url: "organizarFinanzas.html", img: "https://images.pexels.com/photos/34109400/pexels-photo-34109400.jpeg", target: "grid-dia" },
+        { titulo: "Cómo crear un fondo de emergencia paso a paso", cat: "Vida Real", color: "blue", url: "fondoEmergencias.html", img: "https://images.pexels.com/photos/210705/pexels-photo-210705.jpeg", target: "grid-dia" },
+        { titulo: "Qué hacer cuando recibes dinero extra", cat: "Vida Real", color: "blue", url: "dineroExtra.html", img: "https://images.pexels.com/photos/4968551/pexels-photo-4968551.jpeg", target: "grid-dia" },
+        // MENTALIDAD
+        { titulo: "Por qué gastas dinero sin darte cuenta", cat: "Mentalidad", color: "purple", url: "gastarSinDarCuenta.html", img: "https://images.pexels.com/photos/8938731/pexels-photo-8938731.jpeg", target: "grid-mentalidad" },
+        { titulo: "Cómo evitar compras impulsivas (método real)", cat: "Mentalidad", color: "purple", url: "comprasImpulsivas.html", img: "https://images.pexels.com/photos/5632388/pexels-photo-5632388.jpeg", target: "grid-mentalidad" },
+        { titulo: "Errores financieros que te hacen perder dinero", cat: "Mentalidad", color: "purple", url: "erroresFinancieros.html", img: "https://images.pexels.com/photos/34981467/pexels-photo-34981467.jpeg", target: "grid-mentalidad" },
+        { titulo: "Cómo cambiar tu mentalidad para ahorrar más", cat: "Mentalidad", color: "purple", url: "mentalidadAhorrar.html", img: "https://images.pexels.com/photos/6266626/pexels-photo-6266626.jpeg", target: "grid-mentalidad" },
+        { titulo: "Por qué nunca consigues ahorrar", cat: "Mentalidad", color: "purple", url: "noConseguirAhorrar.html", img: "https://images.pexels.com/photos/3768145/pexels-photo-3768145.jpeg", target: "grid-mentalidad" },
+        // INVERSION
+        { titulo: "Banco tradicional vs banco online: cuál elegir", cat: "Inversión", color: "yellow", url: "bancoTradicionalVsOnline.html", img: "https://images.pexels.com/photos/5849548/pexels-photo-5849548.jpeg", target: "grid-inversion" },
+        { titulo: "Tarjetas de crédito: úsalas sin endeudarte", cat: "Inversión", color: "yellow", url: "tarjetasCredito.html", img: "https://images.pexels.com/photos/17669001/pexels-photo-17669001.png", target: "grid-inversion" },
+        { titulo: "Ahorrar vs invertir: qué es mejor para ti", cat: "Inversión", color: "yellow", url: "ahorrarVsInvertir.html", img: "https://images.pexels.com/photos/5717753/pexels-photo-5717753.jpeg", target: "grid-inversion" },
+        { titulo: "Mejores cuentas sin comisiones en España", cat: "Inversión", color: "yellow", url: "mejoresCuentas.html", img: "https://images.unsplash.com/photo-1681825984459-47ee999da245", target: "grid-inversion" },
+        { titulo: "Invertir desde cero con poco dinero", cat: "Inversión", color: "yellow", url: "invertirDeCero.html", img: "https://images.unsplash.com/photo-1761587941453-bd1790225d52", target: "grid-inversion" },
+        // PRO
+        { titulo: "Cómo ahorrar 1000€ en 6 meses", cat: "Guías Pro", color: "emerald", url: "ahorrarMil.html", img: "https://images.unsplash.com/photo-1573336939501-8eb3fc268258", target: "grid-pro" },
+        { titulo: "Finanzas para personas que cobran poco", cat: "Guías Pro", color: "emerald", url: "finanzasPersonales.html", img: "https://images.pexels.com/photos/7654184/pexels-photo-7654184.jpeg", target: "grid-pro" },
+        { titulo: "Organizar tu dinero si eres desordenado", cat: "Guías Pro", color: "emerald", url: "organizarDinero.html", img: "https://images.pexels.com/photos/5721050/pexels-photo-5721050.jpeg", target: "grid-pro" },
+        { titulo: "Qué hacer con 100€, 500€ y 1000€", cat: "Guías Pro", color: "emerald", url: "hacerDistintosPresupuestos.html", img: "https://images.unsplash.com/photo-1669951584309-492ed24d274f", target: "grid-pro" },
+        { titulo: "Mejorar tu situación financiera en 90 días", cat: "Guías Pro", color: "emerald", url: "mejorarSituacion.html", img: "https://images.unsplash.com/photo-1633526543814-9718c8922b7a", target: "grid-pro" }
+    ];
+
+    const seoTexts = {
+        'Ahorro': 'Aprende estrategias de ahorro efectivas y consejos prácticos para gestionar tu dinero.',
+        'Vida Real': 'Guías reales para organizar tus finanzas personales y tomar decisiones inteligentes.',
+        'Mentalidad': 'Mejora tu mentalidad financiera y tus hábitos de gasto cada mes.',
+        'Inversión': 'Consejos sobre inversión y planificación financiera para hacer crecer tu dinero.',
+        'Guías Pro': 'Planes detallados y estrategias profesionales para optimizar tus metas económicas.'
+    };
+
+    function createCardHTML(data) {
+        const optimizedImg = data.img.includes('?') 
+            ? `${data.img}&w=600&auto=format&fit=crop&q=70` 
+            : `${data.img}?w=600&auto=format&fit=crop&q=70`;
+        
+        return `
+            <a href="${data.url}" class="block group" aria-label="Leer guía sobre ${data.titulo}">
+                <article class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-1 active:scale-[0.98] transition duration-300 border border-gray-100 h-full">
+                    <div class="h-64 overflow-hidden bg-gray-200">
+                        <img src="${optimizedImg}" 
+                             alt="Imagen representativa de: ${data.titulo}" 
+                             loading="lazy" 
+                             decoding="async"
+                             class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-${data.color}-600 text-[10px] font-black uppercase tracking-widest">${data.cat}</span>
+                        <h4 class="text-lg font-bold mt-2 leading-tight text-gray-800 group-hover:text-blue-900 transition">${data.titulo}</h4>
+                        <p class="text-gray-500 mt-3 text-xs leading-relaxed">${seoTexts[data.cat] || ''}</p>
+                        <div class="mt-4 text-blue-800 font-bold text-xs uppercase">Leer más →</div>
+                    </div>
+                </article>
+            </a>`;
+    }
+
+    function renderCards() {
+        articlesData.forEach(art => {
+            const grid = document.getElementById(art.target);
+            if (grid) grid.innerHTML += createCardHTML(art);
+        });
+    }
+
+    renderCards();
+
+    function filterArticles() {
+        const val = document.getElementById('filterSelect').value;
+        const sections = ['sec-ahorro', 'sec-dia', 'sec-mentalidad', 'sec-inversion', 'sec-pro'];
+        sections.forEach(id => {
+            const el = document.getElementById(id);
+            if(el) el.style.display = (val === "all" || id.includes(val)) ? "block" : "none";
+        });
+    }
+
+    function setFilter(val) {
+        document.getElementById('filterSelect').value = val;
+        filterArticles();
+        document.getElementById('mobileMenu').classList.add('hidden');
+    }
+
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+</script>
+
+<footer class="bg-gray-900 text-gray-400 py-16">
+    <div class="container mx-auto px-6 text-center">
+        <p class="text-white font-bold mb-4 tracking-widest text-xl uppercase">Ahorro Inteligente</p>
+        <div class="flex flex-wrap justify-center gap-6 md:gap-10 mt-6 text-xs uppercase font-bold tracking-widest">
+            <a href="about.html" class="hover:text-white transition">Sobre mí</a>
+            <a href="terms.html" class="hover:text-white transition">Términos de uso</a>
+            <a href="privacy.html" class="hover:text-white transition">Privacidad</a>
+            <a href="cookies.html" class="hover:text-white transition">Cookies</a>
+            <a href="contact.html" class="hover:text-white transition">Contacto</a>
+        </div>
+        <p class="mt-10 text-[10px] text-gray-600 uppercase tracking-tighter italic">© 2026 Ahorro Inteligente - Todos los derechos reservados</p>
+    </div>
+</footer>
+
+</body>
+</html>
